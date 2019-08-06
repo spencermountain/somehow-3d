@@ -1,9 +1,18 @@
 const THREE = require('three')
+const Shape = require('./Shape')
+const json = require('../../assets/helvetiker_regular.typeface.json')
 
-function addText(str, scene) {
-  var loader = new THREE.FontLoader()
-  loader.load('../assets/helvetiker_regular.typeface.json', function(font) {
+class Text extends Shape {
+  constructor(text, world) {
+    super({}, world)
+    this.text = text || ''
+  }
+  build() {
+    const world = this.world
     var xMid, text
+
+    var loader = new THREE.FontLoader()
+    let font = loader.parse(json)
 
     var matLite = new THREE.MeshBasicMaterial({
       color: 0x006699,
@@ -12,7 +21,7 @@ function addText(str, scene) {
       side: THREE.DoubleSide
     })
 
-    var shapes = font.generateShapes(str, 20)
+    var shapes = font.generateShapes(this.text, 20)
 
     var geometry = new THREE.ShapeBufferGeometry(shapes)
 
@@ -24,7 +33,8 @@ function addText(str, scene) {
 
     text = new THREE.Mesh(geometry, matLite)
     text.position.z = 2
-    scene.add(text)
-  })
+
+    world.scene.add(text)
+  }
 }
-module.exports = addText
+module.exports = Text
