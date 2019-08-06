@@ -1,0 +1,48 @@
+{
+  "name": "somehow-3d",
+  "description": "make infographics without thinking",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "unpkg": "builds/somehow.min.js",
+  "author": "Spencer Kelly (spencermountain)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencermountain/somehow-3d.git"
+  },
+  "homepage": "https://github.com/spencermountain/somehow-3d#readme",
+  "scripts": {
+    "start": "budo scratch.js:assets/bundle.js --live",
+    "watch": "npm run start",
+    "build": "node ./scripts/build.js"
+  },
+  "files": [
+    "src",
+    "builds"
+  ],
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "dependencies": {
+    "fit-aspect-ratio": "^2.0.0",
+    "htm": "^2.1.1",
+    "somehow-ticks": "^0.0.3",
+    "spencer-color": "^0.1.0",
+    "three": "^0.107.0",
+    "three-orbitcontrols": "^2.102.2",
+    "vhtml": "^2.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.5",
+    "@babel/preset-env": "7.4.5",
+    "babelify": "10.0.0",
+    "budo": "11.6.2",
+    "derequire": "2.0.6",
+    "shelljs": "0.8.3",
+    "terser": "4.0.0"
+  }
+}
