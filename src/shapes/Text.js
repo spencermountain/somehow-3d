@@ -6,6 +6,7 @@ class Text extends Shape {
   constructor(text, world) {
     super({}, world)
     this.text = text || ''
+    this.color = this.obj.color || 0x4f4fff
   }
   build() {
     const world = this.world
@@ -15,9 +16,9 @@ class Text extends Shape {
     let font = loader.parse(json)
 
     var matLite = new THREE.MeshBasicMaterial({
-      color: 0x006699,
+      color: this.color,
       transparent: true,
-      opacity: 0.4,
+      opacity: 0.7,
       side: THREE.DoubleSide
     })
 
